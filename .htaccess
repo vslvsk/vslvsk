@@ -108,8 +108,11 @@
 
 RewriteEngine on
 
-RewriteCond %{HTTP_HOST} ^(www\.)?vslvsk\.ml$
-RewriteRule ^/?free/(.*)$ http://free.example.com/$1 [R=301]
+#Fix missing trailing slash character on folders.
+RewriteRule ^([^.?]+[^.?/])$ $1/ [R,L]
 
-Redirect /free http://free.vslvsk.ml
+#www.domain.com and domain.com will map to the folder {root}/folder1/
+RewriteCond %{HTTP:Host} ^(?:www\.)?vslvsk\.ml$
+RewriteCond %{REQUEST_URI} !^/free/
+RewriteRule ^(.*) free/$1 [NC,L,NS]
 
