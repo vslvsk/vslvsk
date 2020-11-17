@@ -1,11 +1,8 @@
+RewriteEngine on
 
-# 301 redirect for main pages
-RedirectMatch 301 ^/free/$ http://free.vslvsk.ml/
+RewriteCond %{HTTP_HOST} ^(www\.)?example\.com$
+RewriteRule ^/?free/(.*)$ http://free.example.com/$1 [R=301]
 
-
-############################################################################
-#### Стандартный .htaccess для проектов студии Клондайк, версия 4.6     ####
-############################################################################
 RewriteEngine On
    #  Директива включает редиректы.
 RewriteBase / 
