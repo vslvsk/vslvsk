@@ -3,6 +3,8 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www\.)?example\.com$
 RewriteRule ^/?free/(.*)$ http://free.example.com/$1 [R=301]
 
+Redirect /free http://free.vslvsk.ml
+
 RewriteEngine On
    #  Директива включает редиректы.
 RewriteBase / 
